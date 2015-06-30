@@ -13,4 +13,4 @@ You can use the 'Settings' button (top-left) to add new websites to the bookmark
 
 ## Privacy
 
-None of your personal information is stored **OUTSIDE** of your browser. Bookmarks are stored within the browser's HTML 5 Local Storage. 
+Your bookmarks are stored within the browser's HTML5 Local Storage. They are never sent anywhere else.
