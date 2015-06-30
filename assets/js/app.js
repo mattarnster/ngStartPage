@@ -13,14 +13,37 @@
 
     // route for the home page
     .when('/settings', {
-        templateUrl : '/assets/templates/settings.html',
-        controller  : 'settingsController'
+      templateUrl : '/assets/templates/settings.html',
+      controller  : 'settingsController'
+    })
+
+    .when('/debug', {
+      templateUrl : '/assets/templates/debug.html',
+      controller  : 'debugController'
     });
 
   });
 
+  app.controller("debugController", function ($scope, localStorageService) {
+    $scope.personal_sites = localStorageService.get('personalSite');
+    $scope.work_sites = localStorageService.get('workSite');
+  });
+
   app.controller("settingsController", function ($scope, localStorageService, $window) {
     $scope.master = {};
+
+    $scope.bookmarks = localStorageService.get('personalSite') + "\n\n" + localStorageService.get('workSite');
+
+    $scope.addSites = function(sites) {
+      console.log(sites);
+      if (sites.bookmark_type === "personal") {
+        localStorageService.set('personalSite', sites.bookmarks);
+      } else if (sites.bookmark_type === "work") {
+        localStorageService.set('workSite', sites.bookmarks);
+      }
+
+      //$window.location.reload();
+    };
 
     $scope.updatePersonal = function(user) {
       $scope.master = angular.copy(user);
@@ -59,7 +82,9 @@
     }
   });
 
-  app.controller("Utils", function ($scope) {})
+  app.controller("Utils", function ($scope) {
+    $scope.search_active = false;
+  })
     .directive('currentTime', ['$interval', 'dateFilter',
       function($interval, dateFilter) {
         // return the directive link function. (compile function not needed)
