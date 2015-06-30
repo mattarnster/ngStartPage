@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ngStartPage</title>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css">
+  <script type="text/javascript" src="/bower_components/materialize/dist/js/materialize.min.js" async></script>
+  <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%2C%22nocss%22%3Atrue%7D%5D%7D"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="/bower_components/angular-feeds/app/angular-feeds/angular-feeds.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+  <script type="text/javascript" src="/assets/js/loading-bar.min.js"></script>
+  <style type="text/css">
+    section#favourites {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    section#statuses {
+      text-align: center;
+      
+    }
+    section#feeds {
+      
+    }
+    .feeds-container h4 {
+      text-align: center;
+    }
+    .feeds-container ul h4 {
+      text-align: left;
+      font-size: 1.2em;
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/css/loading-bar.min.css">
+</head>
+<body ng-app="AngularStart">
+  <div class="navbar-fixed" ng-controller="Utils">
+    <nav>
+      <div class="nav-wrapper orange darken-3">
+        <a href="#" class="brand-logo center">ngStartPage</a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#"><span current-time></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    <section id="settings" ng-view>
+    </section>
+    <section id="favourites" ng-controller="PageListing">
+      <div class="row">
+        <div class="col s6 m3" ng-repeat="page in play_pages">
+          <div class="card-panel orange darken-3 hoverable">
+            <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col s6 m3" ng-repeat="page in work_pages">
+          <div class="card-panel amber darken-2 hoverable">
+            <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="feeds">
+      <div class="row">
+        <div class="col s12 feeds-container">
+          <div class="card-panel deep-orange lighten-1">
+            <h4 class="white-text">Hacker News</h4>
+            <feed url="https://news.ycombinator.com/rss" summary="true" count="3" template-url="/assets/templates/feed.html" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
