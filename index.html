@@ -39,24 +39,37 @@
 <body ng-app="AngularStart">
   <div class="navbar-fixed" ng-controller="Utils">
     <nav>
-      <div class="nav-wrapper orange darken-3">
+      <div class="nav-wrapper orange darken-2">
         <a href="#" class="brand-logo center">ngStartPage</a>
         <ul class="left hide-on-med-and-down">
           <li><a href="#settings">Settings</a></li>
+          <!--<li><a href="#debug">Debug</a></li>-->
         </ul>
         <ul class="right hide-on-med-and-down">
           <li><a href="#"><span current-time></span></a></li>
         </ul>
       </div>
     </nav>
+    <nav ng-show="search_active">
+    <div class="nav-wrapper orange accent-2">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
   </div>
+
   <div class="container">
     <section id="settings" ng-view>
     </section>
     <section id="favourites" ng-controller="PageListing">
       <div class="row">
         <div class="col s6 m3" ng-repeat="page in play_pages">
-          <div class="card-panel orange darken-3 hoverable">
+          <div class="card-panel orange darken-2 hoverable z-depth-1">
             <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
           </div>
         </div>
@@ -64,7 +77,7 @@
       <br>
       <div class="row">
         <div class="col s6 m3" ng-repeat="page in work_pages">
-          <div class="card-panel amber darken-2 hoverable">
+          <div class="card-panel orange accent-2 hoverable z-depth-1">
             <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
           </div>
         </div>
