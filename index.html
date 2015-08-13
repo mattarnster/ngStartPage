@@ -39,7 +39,7 @@
 <body ng-app="AngularStart">
   <div class="navbar-fixed" ng-controller="Utils">
     <nav>
-      <div class="nav-wrapper orange darken-2">
+      <div class="nav-wrapper blue darken-2">
         <a href="#" class="brand-logo center">ngStartPage</a>
         <ul class="left hide-on-med-and-down">
           <li><a href="#settings">Settings</a></li>
@@ -51,7 +51,7 @@
       </div>
     </nav>
     <nav ng-show="search_active">
-    <div class="nav-wrapper orange accent-2">
+    <div class="nav-wrapper blue accent-2">
       <form>
         <div class="input-field">
           <input id="search" type="search" required>
@@ -69,7 +69,7 @@
     <section id="favourites" ng-controller="PageListing">
       <div class="row">
         <div class="col s6 m3" ng-repeat="page in play_pages">
-          <div class="card-panel orange darken-2 hoverable z-depth-1">
+          <div class="card-panel blue darken-2 hoverable z-depth-1">
             <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
           </div>
         </div>
@@ -77,7 +77,7 @@
       <br>
       <div class="row">
         <div class="col s6 m3" ng-repeat="page in work_pages">
-          <div class="card-panel orange accent-2 hoverable z-depth-1">
+          <div class="card-panel blue accent-2 hoverable z-depth-1">
             <a href="{{ page.URL }}" class="white-text">{{ page.Name }}</a>
           </div>
         </div>
@@ -86,7 +86,7 @@
     <section id="feeds">
       <div class="row">
         <div class="col s12 feeds-container">
-          <div class="card-panel deep-orange lighten-1">
+          <div class="card-panel blue accent-4">
             <h4 class="white-text">Hacker News</h4>
             <feed url="https://news.ycombinator.com/rss" summary="true" count="3" template-url="/assets/templates/feed.html" />
           </div>
