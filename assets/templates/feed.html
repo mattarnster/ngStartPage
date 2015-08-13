@@ -1,6 +1,6 @@
 <div class="feed-listing">
   <div ng-repeat="feed in feeds" class="item" ng-class="{active: $index==0}">
-    <div class="card-panel deep-orange lighten-2 hoverable">
+    <div class="card-panel blue lighten-2 hoverable">
       <h4 class="text-center"><a class="white-text" target="_new" href="{{feed.link}}" ng-bind-html="feed.title"></a></h4>
       <p class="white-text lighten-3 center" ng-bind-html="!summary ? feed.content : feed.contentSnippet"></p>
     </div>
